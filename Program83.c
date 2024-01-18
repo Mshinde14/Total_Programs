@@ -1,36 +1,45 @@
 #include<stdio.h>
+#include<stdlib.h>
 
-int EvenFactorial(int iNo)
+int Frequency(int Arr[], int iSize)
 {
     int iCnt = 0;
-    int iAns = 1;
-    
-    if(iNo < 0)
-    {
-        iNo = -iNo;
-    }
+    int iFrequency = 0;
 
-    for(iCnt = 1; iCnt <= iNo; iCnt++)
+    for(iCnt = 0; iCnt < iSize; iCnt++)
     {
-        if((iCnt % 2) == 0)
+        if(Arr[iCnt] == 21)
         {
-            iAns = iAns * iCnt;
-        }     
+            iFrequency++;
+        }
     }
-    return iAns;
+    return iFrequency;
 }
 
 int main()
 {
-    int iValue = 0;
+    int iCount = 0, iCnt = 0;
+    int *ptr = NULL;
     int iRet = 0;
 
-    printf("Enter Number: ");
-    scanf("%d",&iValue);
+    printf("Enter number of element you want to enter: \n");
+    scanf("%d",&iCount);
 
-    iRet = EvenFactorial(iValue);
+    ptr = (int *)malloc(iCount * sizeof(int));
+    printf("Dynamically memory gets aloocated Succesfully..");
 
-    printf("Even Factorial Number is : %d",iRet);
+    printf("Enter the Elements : \n");
+    for(iCnt = 0; iCnt <iCount; iCnt++)
+    {
+        printf("\nEnter the elemet no %d : ",iCnt+1);
+        scanf("%d",&ptr[iCnt]);
+    }
+    iRet = Frequency(ptr,iCount);
+
+    printf("21 Occures %d times\n",iRet);
+
+    free(ptr);
+    printf("Dynamic memory gets dealloacted succefully..\n");
 
     return 0;
 }

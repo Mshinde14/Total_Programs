@@ -1,36 +1,28 @@
 #include<stdio.h>
 
-int SumNonFact(int iNo)
+void DisplayFactors(int iNo)
 {
     int iCnt = 0;
-    int iSum = 0;
-  
-    if(iNo < 0)
-    {
-        iNo = -iNo;
-    }
 
-    for(iCnt = 1; iCnt <= iNo; iCnt++)
+    printf("Factors of %d are ",iNo);
+
+    for(iCnt = 1; iCnt < iNo; iCnt++)
     {
-        if((iNo % iCnt) !=0)
+        if((iNo % iCnt) == 0)
         {
-            iSum = iSum + iCnt;
+            printf("%d\n",iCnt);
         }
     }
-    return iSum;
 }
 
 int main()
 {
     int iValue = 0;
-    int iRet = 0;
-    
-    printf("Enter Number :");
+
+    printf("Enter the Number : \n");
     scanf("%d",&iValue);
 
-    iRet = SumNonFact(iValue);
-
-    printf("%d",iRet);
+    DisplayFactors(iValue);
 
     return 0;
 }

@@ -1,29 +1,18 @@
 #include<stdio.h>
 
-void PrintEven(int iNo)
+void Display()
 {
     int iCnt = 0;
-    if(iNo <= 0)
+    //     1         2         3
+    for(iCnt= 0; iCnt <= 4; iCnt++)
     {
-        return;
-    }
-    for(iCnt = 1; iCnt <= (iNo*2); iCnt++)
-    {
-        if((iCnt % 2) == 0)
-        {
-            printf("%d\t",iCnt);
-        }
+        printf("Jay Ganesh...\n");  //4
     }
 }
 
 int main()
 {
-    int iValue = 0;
-
-    printf("Enter Number\n");
-    scanf("%d",&iValue);
-
-    PrintEven(iValue);
+    Display();
 
     return 0;
 }

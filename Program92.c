@@ -1,29 +1,26 @@
 #include<stdio.h>
 
-double RectArea(float fWidth, float fHeight)
+void Display(int iNo)
 {
-    double dArea = 0.0;
+    int iCnt = 0;
+    char ch = 'a';
 
-    dArea = (double)fWidth * (double)fHeight;
-
-    return dArea;
+    for(iCnt = 1; iCnt <= iNo; iCnt++)
+    {
+        printf("%c\t",ch);
+        ch++;
+    }
+    printf("\n");
 }
 
 int main()
 {
-    float fValue1 = 0.0f;
-    float fValue2 = 0.0f;
+    int iValue = 0;
 
-    double dRet = 0.0;
+    printf("Enter the Count : \n");
+    scanf("%d",&iValue);
 
-    printf("Enter the Width : ");
-    scanf("%f",&fValue1);
-    printf("Enter the Height : ");
-    scanf("%f",&fValue2);
-
-    dRet = RectArea(fValue1 ,fValue2);
-
-    printf("Area of Circle is : %lf",dRet);
+    Display(iValue);
 
     return 0;
 }

@@ -1,36 +1,48 @@
 #include<stdio.h>
+#include<stdlib.h>
 
-int OddFactorial(int iNo)
+int Frequency(int Arr[], int iSize, int iNo)
 {
     int iCnt = 0;
-    int iAns = 1;
-    
-    if(iNo < 0)
-    {
-        iNo = -iNo;
-    }
+    int iFrequency = 0;
 
-    for(iCnt = 1; iCnt <= iNo; iCnt++)
+    for(iCnt = 0; iCnt < iSize; iCnt++)
     {
-        if((iCnt % 2) != 0)
+        if(Arr[iCnt] == iNo)
         {
-            iAns = iAns * iCnt;
-        }     
+            iFrequency++;
+        }
     }
-    return iAns;
+    return iFrequency;
 }
 
 int main()
 {
-    int iValue = 0;
+    int iCount = 0, iCnt = 0, iValue = 0;
+    int *ptr = NULL;
     int iRet = 0;
 
-    printf("Enter Number: ");
+    printf("Enter number of element you want to enter: \n");
+    scanf("%d",&iCount);
+
+    ptr = (int *)malloc(iCount * sizeof(int));
+    printf("Dynamically memory gets aloocated Succesfully..");
+
+    printf("Enter the Elements : \n");
+    for(iCnt = 0; iCnt <iCount; iCnt++)
+    {
+        printf("\nEnter the elemet no %d : ",iCnt+1);
+        scanf("%d",&ptr[iCnt]);
+    }
+
+    printf("Enter the element that you want to search : \n");
     scanf("%d",&iValue);
+    iRet = Frequency(ptr,iCount,iValue);
 
-    iRet = OddFactorial(iValue);
+    printf("%d Occures %d times\n",iValue,iRet);
 
-    printf("Odd Factorial Number is : %d",iRet);
+    free(ptr);
+    printf("Dynamic memory gets dealloacted succefully..\n");
 
     return 0;
 }

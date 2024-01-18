@@ -1,25 +1,25 @@
 #include<stdio.h>
 
-double SqFeetToSqMeter(float fNo)
+void Display(int iNo)
 {
-    long double dAns = 0;
+    int iCnt = 0;
+    char ch = '\0';
 
-    dAns = (double)fNo * 0.0929;
-
-    return dAns;
+    for(iCnt = 1, ch ='A' ; iCnt <= iNo; iCnt++,ch++)
+    {
+        printf("%c\t",ch);
+    }
+    printf("\n");
 }
 
 int main()
 {
-    float fValue = 0.0f;
-    double dRet = 0.0;
+    int iValue = 0;
 
-    printf("Enter Area : ");
-    scanf("%f",&fValue);
+    printf("Enter the Count : \n");
+    scanf("%d",&iValue);
 
-    dRet = SqFeetToSqMeter(fValue);
-
-    printf("Area into square feet : %lf",dRet);
+    Display(iValue);
 
     return 0;
 }

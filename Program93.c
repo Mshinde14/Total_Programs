@@ -1,25 +1,25 @@
 #include<stdio.h>
 
-int KMtoMeter(int iKm)
+void Display(int iNo)
 {
-    int iMeter= 0;
+    int iCnt = 0;
+    char ch = '\0';
 
-    iMeter = iKm * 1000;
-
-    return iMeter;
+    for(iCnt = 1, ch ='a' ; iCnt <= iNo; iCnt++,ch++)
+    {
+        printf("%c\t",ch);
+    }
+    printf("\n");
 }
 
 int main()
 {
     int iValue = 0;
-    int iRet = 0;
 
-    printf("Enter Distance in KM : ");
+    printf("Enter the Count : \n");
     scanf("%d",&iValue);
 
-    iRet = KMtoMeter(iValue);
-
-    printf("Value in Meter is : %d",iRet);
+    Display(iValue);
 
     return 0;
 }

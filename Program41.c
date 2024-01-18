@@ -1,36 +1,22 @@
 #include<stdio.h>
 
-int MultFact(int iNo)
+void Display(int iNo)
 {
     int iCnt = 0;
-    int iMul = 1;
-
-    if(iNo < 0)
+    for(iCnt = 1; iCnt <= iNo; iCnt++)
     {
-        iNo = -iNo;
+        printf("*\n");
     }
-
-    for(iCnt = 1; iCnt <= iNo/2; iCnt++)
-    {
-        if((iNo % iCnt) ==0)
-        {
-            iMul = iMul * iCnt;
-        }
-    }
-    return iMul;
 }
 
 int main()
 {
     int iValue = 0;
-    int iRet = 0;
 
-    printf("Enter Number :");
+    printf("Enter number of times want to display on Screen : ");
     scanf("%d",&iValue);
-
-    iRet = MultFact(iValue);
-
-    printf("%d",iRet);
+      
+    Display(iValue);
 
     return 0;
 }

@@ -1,32 +1,22 @@
 #include<stdio.h>
 
-void FactRev(int iNo)
+void Display(int iNo)
 {
     int iCnt = 0;
-    
-    if(iNo < 0)
+    for(iCnt = 1; iCnt <= iNo; iCnt++)
     {
-        iNo = -iNo;
+        printf("*\t");
     }
-
-    for(iCnt = iNo/2; iCnt >= 1; iCnt--)
-    {
-        if((iNo % iCnt) == 0)
-        {
-            printf("%d\t",iCnt);
-        }
-    }
-    
 }
 
 int main()
 {
     int iValue = 0;
 
-    printf("Enter Number :");
+    printf("Enter number of times want to display on Screen : ");
     scanf("%d",&iValue);
-
-    FactRev(iValue);
+      
+    Display(iValue);
 
     return 0;
 }

@@ -1,25 +1,36 @@
 #include<stdio.h>
+#include<stdlib.h>
 
-void MultipleDisplay(int iNo)
+void Display(int Arr[], int iSize)
 {
     int iCnt = 0;
-    int iAns = 0;
 
-    for(iCnt = 1; iCnt <= 5; iCnt++)
+    for(iCnt = 0; iCnt < iSize; iCnt++)
     {
-        iAns = iNo * iCnt;
-        printf("%d ",iAns);
+        printf("%d\t",Arr[iCnt]);
     }
+    printf("\n");
 }
 
 int main()
 {
-    int iValue = 0;
+    int iCount = 0;
+    int *ptr = NULL;
+    int iCnt = 0;
 
-    printf("Enter Number: ");
-    scanf("%d",&iValue);
+    printf("Enter the number of elemets : \n");
+    scanf("%d",&iCount);
 
-    MultipleDisplay(iValue);
+    ptr = (int *)malloc(iCount * sizeof(int));
 
-    return 0;   
+    printf("Enter the elements : \n");
+
+    for(iCnt = 0; iCnt < iCount; iCnt++)
+    {
+        scanf("%d",&ptr[iCnt]);
+    }
+
+    Display(ptr,iCount);
+
+    return 0;
 }

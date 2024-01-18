@@ -1,20 +1,13 @@
 #include<stdio.h>
 
-void DisplayFactor(int iNo)
+void Display(int iNo)
 {
     int iCnt = 0;
-
-    if(iNo <= 0)
+    
+    //     1         2         3
+    for(iCnt= 0; iCnt <= iNo; iCnt++)
     {
-        iNo = -iNo;
-    }
-
-    for(iCnt = 1; iCnt <= (iNo/2); iCnt++)
-    {
-        if((iNo % iCnt) == 0)
-        {
-            printf("%d\t",iCnt);
-        }
+        printf("Jay Ganesh...\n");  //4
     }
 }
 
@@ -22,10 +15,10 @@ int main()
 {
     int iValue = 0;
 
-    printf("Enter Number\n");
+    printf("Enter the Number of times you want to print Jay Ganesh on Screen : ");
     scanf("%d",&iValue);
 
-    DisplayFactor(iValue);
+    Display(iValue);
 
     return 0;
 }

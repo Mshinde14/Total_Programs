@@ -1,29 +1,43 @@
 #include<stdio.h>
+#include<stdlib.h>
 
-void Number(int iNo)
+void EvenDisplay(int Arr[], int iSize)
 {
-    if(iNo < 50)
+    int iCnt = 0;
+    printf("\nElements of the Array are : \n");
+    for(iCnt = 0; iCnt < iSize; iCnt++)
     {
-        printf("Small");
+        if((Arr[iCnt] % 2) == 0)
+        {
+            printf("%d\t",Arr[iCnt]);
+        }
     }
-    if(iNo >=50 && iNo < 100)
-    {
-        printf("Medium");
-    }
-    if(iNo >=100)
-    {
-        printf("Large");
-    }
+    printf("\n");
 }
 
 int main()
 {
-    int iValue = 0;
+    int iCount = 0, iCnt = 0;
+    int *ptr = NULL;
 
-    printf("Enter Number : ");
-    scanf("%d",&iValue);
+    printf("Enter the number of elemets that you want to enter : \n");
+    scanf("%d",&iCount);
 
-    Number(iValue);
-    
+    ptr = (int *)malloc(iCount * sizeof(int));
+
+    printf("Dynamic memory gets allocated succesfully for %d elements \n",iCount);
+    printf("Enter the %d Values : \n",iCount);
+
+    for(iCnt = 0; iCnt < iCount; iCnt++)
+    {
+        printf("\n Enter the elemet no %d : ",iCnt+1);
+        scanf("%d",&ptr[iCnt]);
+    }
+
+    EvenDisplay(ptr, iCount);
+
+    free(ptr);
+    printf("Dynamic memory gets deallocated successfully...");
+
     return 0;
 }

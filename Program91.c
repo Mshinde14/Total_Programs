@@ -1,26 +1,24 @@
 #include<stdio.h>
-#define PI 3.14
 
-double CircleArea(float fNo)
+void Display(int iNo)
 {
-    double dAns = 0.0;
-
-    dAns = PI * fNo * fNo;
-
-    return dAns;
+    int iCnt = 0;
+    for(iCnt = iNo; iCnt >= 1; iCnt--)
+    {
+        printf("%d\t",iCnt);
+    }
+    printf("\n");
 }
 
 int main()
 {
-    float fValue = 0.0f;
-    double dRet = 0.0;
+    int iValue = 0;
 
-    printf("Enter the Radius : ");
-    scanf("%f",&fValue);
+    printf("Enter the Count : \n");
+    scanf("%d",&iValue);
 
-    dRet = CircleArea(fValue);
 
-    printf("Area of Circle is : %lf",dRet);
+    Display(iValue);
 
     return 0;
 }

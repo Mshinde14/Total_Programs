@@ -1,25 +1,49 @@
 #include<stdio.h>
+#include<stdlib.h>
 
-int DollerToINR(int iNo)
+void MaxMin(int Arr[], int iSize)
 {
-    int iAns = 0;
+    int iCnt = 0;
+    int iMax = Arr[0];
+    int iMin = Arr[0];
 
-    iAns = iNo * 70;
-
-    return iAns;
+    for(iCnt = 0; iCnt < iSize; iCnt++)
+    {
+        if(Arr[iCnt] > iMax)
+        {
+            iMax = Arr[iCnt];
+        }
+        if(Arr[iCnt] < iMin)
+        {
+            iMin = Arr[iCnt];
+        }
+    }
+    printf("Maximum element is : %d\n",iMax);
+    printf("Minimum element is : %d\n",iMin);
 }
 
 int main()
 {
-    int iValue = 0;
-    int iRet= 0;
+    int iCount = 0, iCnt = 0;
+    int *ptr = NULL;
+    int iRet = 0;
 
-    printf("Enter Number of USD : ");
-    scanf("%d",&iValue);
+    printf("Enter number of element you want to enter: \n");
+    scanf("%d",&iCount);
 
-    iRet = DollerToINR(iValue);
+    ptr = (int *)malloc(iCount * sizeof(int));
+    printf("Dynamically memory gets aloocated Succesfully..");
 
-    printf("Value in INR is %d",iRet);
+    printf("Enter the Elements : \n");
+    for(iCnt = 0; iCnt <iCount; iCnt++)
+    {
+        printf("\nEnter the elemet no %d : ",iCnt+1);
+        scanf("%d",&ptr[iCnt]);
+    }
+    MaxMin(ptr,iCount);
+
+    free(ptr);
+    printf("Dynamic memory gets dealloacted succefully..\n");
 
     return 0;
 }

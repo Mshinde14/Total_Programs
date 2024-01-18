@@ -1,22 +1,28 @@
 #include<stdio.h>
 
-void Display(int iNo)
+int Reverse(int iNo)
 {
-    int iCnt = 0;
+    int iDigit = 0, iRev = 0;
 
-    for(iCnt = 1; iCnt <= iNo; iCnt++)
+    while(iNo != 0)
     {
-        printf("%d  ",iCnt);
+        iDigit = iNo % 10;
+        iNo = iNo / 10;
+        iRev = (iRev * 10) + iDigit;
     }
+    return iRev;
 }
+
 int main()
 {
     int iValue = 0;
-    
-    printf("Enter  Number : ");
+    int iRet = 0;
+
+    printf("Enter Number : \n");
     scanf("%d",&iValue);
 
-    Display(iValue);
+    iRet = Reverse(iValue);
+    printf("Reverse number is : %d\n",iRet);
 
     return 0;
 }

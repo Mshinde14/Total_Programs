@@ -1,33 +1,43 @@
 #include<stdio.h>
+#include<stdlib.h>
 
-int Factorial(int iNo)
+void OddDisplay(int Arr[], int iSize)
 {
     int iCnt = 0;
-    int iAns = 1;
-
-    if(iNo < 0)
+    printf("\nElements of the Array are : \n");
+    for(iCnt = 0; iCnt < iSize; iCnt++)
     {
-        iNo = -iNo;
+        if((Arr[iCnt] % 2) != 0)
+        {
+            printf("%d\t",Arr[iCnt]);
+        }
     }
-    for(iCnt = 1; iCnt <=iNo; iCnt++)
-    {
-        iAns = iAns * iCnt;    
-    }
-    return iAns;
-    
+    printf("\n");
 }
 
 int main()
 {
-    int iValue = 0;
-    int iRet = 0;
+    int iCount = 0, iCnt = 0;
+    int *ptr = NULL;
 
-    printf("Enter Number : ");
-    scanf("%d",&iValue);
+    printf("Enter the number of elemets that you want to enter : \n");
+    scanf("%d",&iCount);
 
-    iRet = Factorial(iValue);
+    ptr = (int *)malloc(iCount * sizeof(int));
 
-    printf("Factoria;l of given number is : %d",iRet);
+    printf("Dynamic memory gets allocated succesfully for %d elements \n",iCount);
+    printf("Enter the %d Values : \n",iCount);
+
+    for(iCnt = 0; iCnt < iCount; iCnt++)
+    {
+        printf("\n Enter the elemet no %d : ",iCnt+1);
+        scanf("%d",&ptr[iCnt]);
+    }
+
+    OddDisplay(ptr, iCount);
+
+    free(ptr);
+    printf("Dynamic memory gets deallocated successfully...");
 
     return 0;
 }
